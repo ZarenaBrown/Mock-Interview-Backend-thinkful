@@ -13,10 +13,9 @@ async function customerExists(req, res, next) {
   next({ status: 404, message: `Customer id not found: ${customerId}` });
 }
 
-function read(req, res) {
+async function read(req, res) {
   // Complete the implementation of this method.
-  const{ customer: data } = res.locals;
-  res.json({ data })
+  res.json({ data: res.locals.customer });
 }
 
 async function create(req, res) {
